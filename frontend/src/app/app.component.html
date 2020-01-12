@@ -1,0 +1,35 @@
+<mat-toolbar>
+  <button mat-button
+          [matMenuTriggerFor]="publisherMenu">Publisher</button>
+  <mat-menu #publisherMenu="matMenu">
+    <button mat-menu-item routerLink="publisher-list">List
+      Publisher</button>
+    <button mat-menu-item routerLink="publisher-form">Create
+      Publisher</button>
+  </mat-menu>
+
+  <button mat-button
+          [matMenuTriggerFor]="bookMenu">Book</button>
+  <mat-menu #bookMenu="matMenu">
+    <button mat-menu-item routerLink="book-list">List
+      books</button>
+    <button mat-menu-item routerLink="book-form">Create
+      book</button>
+  </mat-menu>
+
+  <button mat-button
+          [matMenuTriggerFor]="authorMenu">Author</button>
+  <mat-menu #authorMenu="matMenu">
+    <button mat-menu-item routerLink="author-list">List
+      authors</button>
+    <button mat-menu-item routerLink="author-form">Create
+      author</button>
+  </mat-menu>
+
+  <app-logout *ngIf="isLoggedIn"></app-logout>
+
+
+</mat-toolbar>
+
+
+<router-outlet></router-outlet>

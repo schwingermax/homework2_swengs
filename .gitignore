@@ -1,0 +1,15 @@
+
+# Default ignored files
+**/.idea/workspace.xml
+backend/venv/
+/.idea/
+*.pyc
+backend/config/__pycache__/urls.cpython-38.pyc
+backend/bookhw/__pycache__/
+backend/config/__pycache__/
+backend/bookhw/migrations/
+venv
+.idea
+*.pyc
+_pycache_
+db.sqlite3

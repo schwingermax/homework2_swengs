@@ -1,0 +1,50 @@
+
+<table mat-table [dataSource]="authors">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let author">{{author.name}}</td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="vorname">
+    <th mat-header-cell *matHeaderCellDef>Vorname</th>
+    <td mat-cell *matCellDef="let author">{{author.vorname}}</td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="geburtsdatum">
+    <th mat-header-cell *matHeaderCellDef>Geburtsdatum</th>
+    <td mat-cell *matCellDef="let author">{{author.geburtsdatum}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="eyecolour">
+    <th mat-header-cell *matHeaderCellDef>eyecolour</th>
+    <td mat-cell *matCellDef="let author">{{author.eyecolour}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="renowned">
+    <th mat-header-cell *matHeaderCellDef>scientific</th>
+    <td mat-cell *matCellDef="let author">{{author.renowned}}</td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let author">
+      <button mat-button [routerLink]="'/author-form/' + author.id">Edit</button>
+      <button mat-button (click)="deleteAuthor(author)">Delete</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<br>
+
+<mwl-calendar-month-view
+  [viewDate]="viewDate"
+  [events]="events">
+</mwl-calendar-month-view>
+
+

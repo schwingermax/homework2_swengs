@@ -1,0 +1,43 @@
+
+<table mat-table [dataSource]="publishers">
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let publisher">{{publisher.name}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="responsible">
+    <th mat-header-cell *matHeaderCellDef>responsible</th>
+    <td mat-cell *matCellDef="let publisher">{{publisher.responsible}}</td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="responsible_vorname">
+    <th mat-header-cell *matHeaderCellDef>responsible_vorname</th>
+    <td mat-cell *matCellDef="let publisher">{{publisher.responsible_vorname}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="scientific">
+    <th mat-header-cell *matHeaderCellDef>scientific</th>
+    <td mat-cell *matCellDef="let publisher">{{publisher.scientific}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="gruendungsdatum">
+    <th mat-header-cell *matHeaderCellDef>gruendungsdatum</th>
+    <td mat-cell *matCellDef="let publisher">{{publisher.gruendungsdatum}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let publisher">
+      <button mat-button [routerLink]="'/publisher-form/' + publisher.id">Edit</button>
+      <button mat-button (click)="deletePublisher(publisher)">Delete</button>
+    </td>
+  </ng-container>
+
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>

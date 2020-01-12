@@ -1,0 +1,46 @@
+
+<table mat-table [dataSource]="books">
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef>Title</th>
+    <td mat-cell *matCellDef="let book">{{book.title}}</td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="genre">
+    <th mat-header-cell *matHeaderCellDef>Genre</th>
+    <td mat-cell *matCellDef="let book">{{genreService.genreNames[book.genre]}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="erscheinungsdatum">
+    <th mat-header-cell *matHeaderCellDef>erscheinungsdatum</th>
+    <td mat-cell *matCellDef="let book">{{book.erscheinungsdatum}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="handlung">
+    <th mat-header-cell *matHeaderCellDef>handlung</th>
+    <td mat-cell *matCellDef="let book">{{book.handlung}}
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="author">
+    <th mat-header-cell *matHeaderCellDef>Author</th>
+    <td mat-cell *matCellDef="let book">{{book.author}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="publisher_name">
+    <th mat-header-cell *matHeaderCellDef>Publisher_name</th>
+    <td mat-cell *matCellDef="let book">{{book.publisher_name}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let book">
+      <button mat-button [routerLink]="'/book-form/' + book.id">Edit</button>
+      <button mat-button (click)="deleteBook(book)">Delete</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
